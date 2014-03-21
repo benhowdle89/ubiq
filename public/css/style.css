@@ -10,7 +10,6 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -119,6 +118,10 @@ input[type="text"] {
 input[type="text"]:focus {
   border-color: #272E35;
   outline: none;
+}
+
+::-webkit-input-placeholder { 
+    color: #8494a4;
 }
 
 .text-centered {
