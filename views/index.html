@@ -1,0 +1,8 @@
+<form action="/new" method="POST">
+	{{#if messages}}
+	    <div class="flash">
+	        <p class="flash-text">{{messages}}</p>
+	    </div>
+	{{/if}}
+	<input name="url" placeholder="Spotify or Rdio link" />
+</form>
