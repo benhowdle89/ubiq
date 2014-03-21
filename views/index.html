@@ -1,8 +1,20 @@
+<h2 class="text-centered">Easily share tracks, artists or albums across different music services</h2>
+
+<div class="selection">
+	<a href="http://spotify.com"><img data-service="spotify" src="/img/spotify.png" /></a>
+	<a href="http://rdio.com"><img data-service="rdio" src="/img/rdio.png" /></a>
+</div>
+
 <form action="/new" method="POST">
 	{{#if messages}}
 	    <div class="flash">
 	        <p class="flash-text">{{messages}}</p>
 	    </div>
 	{{/if}}
-	<input name="url" placeholder="Spotify or Rdio link" />
+	<p class="text-centered">Paste in the link from your favourite service</p>
+	<input type="text" autocomplete="off" required="true" name="url" placeholder="Spotify or Rdio link" />
+	<p class="muted">e.g. spotify:track:5r55eZvOijyYZRPCdQbu85 or http://rd.io/x/Rl5IpbYrY3sM/</p>
+	<div class="text-centered">
+		<input class="btn" type="submit" value="Grab the link" />
+	</div>
 </form>

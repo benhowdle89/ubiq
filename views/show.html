@@ -1,1 +1,15 @@
-{{document}}
+<h3 class="text-centered">Someone <i>really</i> wanted you to hear {{document.friendly_name}}<h3>
+<div class="selection show">
+	{{#if document.spotify}}
+		<a href="{{document.spotifyHTTP}}"><img data-service="spotify" src="/img/spotify.png" /></a>
+		<p class="muted">Or <a href="{{document.spotify}}">{{document.spotify}}</a></p>
+	{{else}}
+		<img data-service="spotify" src="/img/spotify.png" class="ghost" />
+	{{/if}}
+	
+	{{#if document.rdio}}
+		<a href="{{document.rdio}}"><img data-service="rdio" src="/img/rdio.png" /></a>
+	{{else}}
+		<img data-service="rdio" src="/img/rdio.png" class="ghost" />
+	{{/if}}
+</div>

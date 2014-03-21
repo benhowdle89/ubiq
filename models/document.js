@@ -5,6 +5,8 @@ var DocumentSchema = new Schema({
 	spotify: String,
 	spotifyHTTP: String,
 	rdio: String,
+	type: String,
+	friendly_name: String,
 	created: {
 		type: Date,
 		default: Date.now

@@ -35,6 +35,12 @@ button  { -webkit-font-smoothing: antialiased;  }
 
 a {
   color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+i {
+  font-style: italic;
 }
 
 hr {
@@ -43,15 +49,112 @@ hr {
   margin-top: 0.5rem;
 }
 
-.logo {
-  font-family: "mahalia", cursive;
+.logo a {
+  font-weight: 700;
+  font-size: 1.8rem;
 }
 
 .wrap {
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 header {
-  height: 50px;
+  padding: 1.2rem;
+  background: #272E35;
+  color: #fff;
+  line-height: 2.2rem;
+}
+
+main {
+  clear: both;
+  border-top: 1px solid transparent;
+}
+
+footer {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 1rem;
+}
+
+.pulled-right {
+  float: right;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 2rem 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 2rem 0; 
+}
+
+.selection {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.selection img {
+  display: inline-block;
+}
+
+.selection.show img {
+  display: inline-block;
+  margin: 1rem auto;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #8494a4;
+  border-radius: 3px;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  border-color: #272E35;
+  outline: none;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.muted {
+  color: #8494a4;
+  font-size: 0.9rem;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 1.6rem;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.7rem 1rem;
+  background: #272E35;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+  outline: none;
+  background: #353f49;
+}
+
+form {
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 3px;
+}
+
+.ghost {
+  opacity: 0.3;
 }

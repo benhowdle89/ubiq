@@ -27,7 +27,7 @@ exports.index = function(req, res, next) {
 exports.new = function(req, res, next) {
 	var url = req.body.url;
 	if (!url) {
-		res.redirect('/');
+		return res.redirect('/');
 	}
 	var doc = new documentModel();
 	if ( !! url.match(/spotify/i)) {
@@ -37,15 +37,19 @@ exports.new = function(req, res, next) {
 				req.flash('info', 'Not found!');
 				return res.redirect('/');
 			}
-			doc.spotify = data.href;
-			doc.spotifyHTTP = url;
+			doc.spotify = url;
+			doc.spotifyHTTP = data.href;
+			doc.type = type;
 			var query;
 			if (type == 'track') {
 				query = [data.details.name, data.details.artist].join(' - ');
+				doc.friendly_name = [data.details.name, data.details.artist].join(' by ');
 			} else if (type == 'artist') {
 				query = data.details.name;
+				doc.friendly_name = data.details.name;
 			} else if (type == 'album') {
 				query = [data.details.artist, data.details.name].join(' - ');
+				doc.friendly_name = [data.details.name, data.details.artist].join(' by ');
 			}
 			grabber.rdio.lookup(type, query, function(err, data) {
 				if (err) {
@@ -56,19 +60,23 @@ exports.new = function(req, res, next) {
 				saveDoc(doc, res, next);
 			});
 		});
-	} else {
+	} else if(!!url.match(/rd\.io/i)) {
 		grabber.rdio.parse(url, function(err, data) {
 			if (err) {
 				doc.rdio = null;
 			} else {
 				doc.rdio = url;
+				doc.type = data.type;
 				var query;
 				if (data.type == 'track') {
 					query = "track:" + data.details.name + "+AND+artist:" + data.details.artist;
+					doc.friendly_name = [data.details.name, data.details.artist].join(' by ');
 				} else if (data.type == 'album') {
 					query = "album:" + data.details.name + "+AND+artist:" + data.details.artist;
+					doc.friendly_name = [data.details.name, data.details.artist].join(' by ');
 				} else if (data.type == 'artist') {
 					query = "artist:" + data.details.artist;
+					doc.friendly_name = data.details.name;
 				}
 				grabber.spotify.lookup(data.type, query, function(err, data) {
 					if (err) {
@@ -82,6 +90,8 @@ exports.new = function(req, res, next) {
 				});
 			}
 		});
+	} else {
+		return res.redirect('/');
 	}
 };
 
