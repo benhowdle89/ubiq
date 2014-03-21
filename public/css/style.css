@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-  font: 100%/1.5 "Helvetica Neue", sans-serif;
+  font: 100%/1.5 "effra", sans-serif;
   font-weight: 400;
   color: #222;
   font-size: 13pt;
@@ -41,4 +41,17 @@ hr {
   height: 1px;
   background: #222;
   margin-top: 0.5rem;
+}
+
+.logo {
+  font-family: "mahalia", cursive;
+}
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+header {
+  height: 50px;
 }
