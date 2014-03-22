@@ -41,6 +41,10 @@ i {
   font-style: italic;
 }
 
+b {
+  font-weight: 700;
+}
+
 hr {
   height: 1px;
   background: #222;
@@ -153,7 +157,7 @@ input[type="text"]:focus {
   background: #353f49;
 }
 
-form {
+form, .share {
   padding: 2rem;
   background: #f9fafb;
   border-radius: 3px;
