@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -16,7 +15,7 @@ body {
   font: 100%/1.5 "effra", sans-serif;
   font-weight: 400;
   color: #222;
-  font-size: 13pt;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -54,7 +53,7 @@ hr {
 }
 
 .wrap {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -85,6 +84,7 @@ footer {
 h2 {
   font-size: 1.4rem;
   margin: 2rem 0;
+  font-weight: 700;
 }
 
 h3 {
@@ -160,4 +160,15 @@ form {
 
 .ghost {
   opacity: 0.3;
+}
+
+.flash {
+  margin: 0 auto 1rem auto;
+}
+
+.flash-text {
+  text-align: center;
+  font-size: 1.2rem;
+  background: #fff;
+  padding: 1rem;
 }

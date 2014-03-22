@@ -76,7 +76,7 @@ exports.new = function(req, res, next) {
 					doc.friendly_name = [data.details.name, data.details.artist].join(' by ');
 				} else if (data.type == 'artist') {
 					query = "artist:" + data.details.artist;
-					doc.friendly_name = data.details.name;
+					doc.friendly_name = data.details.artist;
 				}
 				grabber.spotify.lookup(data.type, query, function(err, data) {
 					if (err) {
