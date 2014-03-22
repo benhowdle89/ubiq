@@ -144,6 +144,7 @@ input[type="text"]:focus {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1rem;
+   -webkit-appearance: none;
 }
 
 .btn:hover {
