@@ -60,7 +60,7 @@ exports.new = function(req, res, next) {
 				saveDoc(doc, res, next);
 			});
 		});
-	} else if(!!url.match(/rd\.io/i)) {
+	} else if ( !! url.match(/rd\.io/i)) {
 		grabber.rdio.parse(url, function(err, data) {
 			if (err) {
 				doc.rdio = null;
@@ -110,22 +110,26 @@ var grabber = {
 			request('http://ws.spotify.com/lookup/1/.json?uri=' + url, function(error, response, body) {
 				if (!error && response.statusCode == 200) {
 					var data = JSON.parse(body);
-					var href = 'http://open.spotify.com/' + type + '/' + data[type].href.split(':')[2];
-					var details = {};
-					if (type == 'track') {
-						details.artist = data[type].artists[0].name;
-						details.name = data[type].name;
-					} else if (type == 'artist') {
-						details.name = data[type].name;
-					} else if (type == 'album') {
-						details.artist = data[type].artist;
-						details.name = data[type].name;
+					if (!data[type]) {
+						return callback(404);
+					} else {
+						var href = 'http://open.spotify.com/' + type + '/' + data[type].href.split(':')[2];
+						var details = {};
+						if (type == 'track') {
+							details.artist = data[type].artists[0].name;
+							details.name = data[type].name;
+						} else if (type == 'artist') {
+							details.name = data[type].name;
+						} else if (type == 'album') {
+							details.artist = data[type].artist;
+							details.name = data[type].name;
+						}
+						callback(null, {
+							type: type,
+							details: details,
+							href: href
+						});
 					}
-					callback(null, {
-						type: type,
-						details: details,
-						href: href
-					});
 				} else {
 					callback(404);
 				}
