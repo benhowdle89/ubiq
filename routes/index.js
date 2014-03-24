@@ -145,15 +145,24 @@ var grabber = {
 						var details = {};
 						var href;
 						if (type == 'track') {
+							if (!data.tracks[0]) {
+								return callback(404);
+							}
 							details.artist = data.tracks[0].artist;
 							details.name = data.tracks[0].name;
 							href = data.tracks[0].href;
 							http = 'http://open.spotify.com/' + type + '/' + data.tracks[0].href.split(':')[2];
 						} else if (type == 'artist') {
+							if (!data.artists[0]) {
+								return callback(404);
+							}
 							details.artist = data.artists[0].name;
 							href = data.artists[0].href;
 							http = 'http://open.spotify.com/' + type + '/' + data.artists[0].href.split(':')[2];
 						} else if (type == 'album') {
+							if (!data.albums[0]) {
+								return callback(404);
+							}
 							details.name = data.albums[0].name;
 							href = data.albums[0].href;
 							http = 'http://open.spotify.com/' + type + '/' + data.albums[0].href.split(':')[2];
