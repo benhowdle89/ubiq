@@ -230,6 +230,9 @@ var grabber = {
 					return callback(404);
 				}
 				var item = data.result.results[0];
+				if(!item){
+					return callback(404);
+				}
 				var href = item.shortUrl;
 				var details = {};
 				if (type == 'track') {
