@@ -8,7 +8,7 @@ Fairly standard Node.js/Express/Mongo setup.
 
 ## Running
 
-`foreman start -p 5000 -f Procfile.dev` to run
+`foreman start -p 5000 -f Procfile.dev` to run (https://toolbelt.heroku.com/ you'll want this)
 
 ## Requirements
 
