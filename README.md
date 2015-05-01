@@ -19,3 +19,6 @@ NODE_ENV=development
 RDIO_KEY=xxx
 RDIO_SECRET=xxx
 ```
+## Contribute
+
+The more services the better! Just clone this repo, develop, pull request and I'll deploy...
