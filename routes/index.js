@@ -8,9 +8,9 @@ var request = require('request'); // library to make requests to remote urls
 
 var Rdio = require("node-rdio");
 
-var RDIO_KEY = 'uw67ypksf4u87dhpufd5uwcq';
+var RDIO_KEY = process.env.RDIO_KEY;
 
-var rdio = new Rdio([RDIO_KEY, "YHQKQEFNBf"]);
+var rdio = new Rdio([RDIO_KEY, process.env.RDIO_SECRET]);
 
 var spotify = require('spotify');
 
